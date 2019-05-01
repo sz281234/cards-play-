@@ -1,0 +1,31 @@
+ from urllib import request
+ url = "https://www.gutenberg.org/files/59401/59401-0.txt"
+ response = request.urlopen(url)
+ raw = response.read().decode('utf8')
+ def find_long_word(word_list):
+   longt_word = ''
+    for word in word_list:
+      if len(word) > len(long_word):
+        longest_word = word
+      print(longest_word)
+def get_shortest_name(words):
+    shortest_word = ""
+    shortest_length = 0
+    for word in words:
+      if shortest_length > len(word):
+          shortest_length = len(word)             
+          shortest_word = word 
+      return shortest_word
+def popularWords(words):
+    dic = {}
+    for word in words:
+        dic.setdefault(word, 0)
+        dic[word] += 1
+    wordsList = [(dic.get(w), w) for w in dic]
+    wordsList.sort(reverse = True)
+    return wordsList
+def isPalindrome(s): 
+  rev = reverse(s) 
+    if (s == rev): 
+        return True
+    return False
